@@ -9,12 +9,12 @@ package org.sample.minisuper.view;
  *
  * @author victorm
  */
-public class VistaEmpleadoAlmacen extends javax.swing.JFrame {
+public class VistaAdministradorVentas extends javax.swing.JFrame {
 
     /**
-     * Creates new form VistaEmpleadoAlmacen
+     * Creates new form VistaAdministradorVentas
      */
-    public VistaEmpleadoAlmacen() {
+    public VistaAdministradorVentas() {
         initComponents();
     }
 
@@ -31,11 +31,12 @@ public class VistaEmpleadoAlmacen extends javax.swing.JFrame {
         jToolBar1 = new javax.swing.JToolBar();
         jToggleButton1 = new javax.swing.JToggleButton();
         jToggleButton2 = new javax.swing.JToggleButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jToggleButton3 = new javax.swing.JToggleButton();
+        jToggleButton4 = new javax.swing.JToggleButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        Fondo = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -53,40 +54,49 @@ public class VistaEmpleadoAlmacen extends javax.swing.JFrame {
 
         jToggleButton2.setBackground(new java.awt.Color(153, 153, 153));
         jToggleButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/sample/minisuper/images/trolley3_122342.png"))); // NOI18N
-        jToggleButton2.setText("Consultar Almacén ");
+        jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/sample/minisuper/images/recycle_recyclebin_full_delete_trash_1772.png"))); // NOI18N
+        jToggleButton2.setText("Eliminar");
         jToggleButton2.setFocusable(false);
         jToolBar1.add(jToggleButton2);
 
-        jPanel1.add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 40));
+        jToggleButton3.setBackground(new java.awt.Color(153, 153, 153));
+        jToggleButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jToggleButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/sample/minisuper/images/1486505375-files-folder-search-magnifying-glass-file-search-magnifier-storage_81440.png"))); // NOI18N
+        jToggleButton3.setText("Buscar");
+        jToggleButton3.setFocusable(false);
+        jToolBar1.add(jToggleButton3);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Almacén");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, -1, -1));
+        jToggleButton4.setBackground(new java.awt.Color(153, 153, 153));
+        jToggleButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jToggleButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/sample/minisuper/images/search_book_open_search_locate_6178.png"))); // NOI18N
+        jToggleButton4.setText("Consultar Todo");
+        jToggleButton4.setFocusable(false);
+        jToolBar1.add(jToggleButton4);
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Tabla Productos");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, -1, -1));
+        jPanel1.add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 40));
 
-        jTable1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID Producto", "Nombre", "Descripción ", "Precio", "Piezas Disponibles"
+                "ID", "Descripcion", "Fecha", "ID Empleado", "Total"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 440, 150));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 560, 210));
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/sample/minisuper/images/4882066.jpg"))); // NOI18N
-        jPanel1.add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 440, 290));
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("HIstorial de Ventas");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 320));
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/sample/minisuper/images/4882066.jpg"))); // NOI18N
+        fondo.setText("jLabel2");
+        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 560, 310));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -108,33 +118,34 @@ public class VistaEmpleadoAlmacen extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VistaEmpleadoAlmacen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaAdministradorVentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VistaEmpleadoAlmacen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaAdministradorVentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VistaEmpleadoAlmacen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaAdministradorVentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaEmpleadoAlmacen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaAdministradorVentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VistaEmpleadoAlmacen().setVisible(true);
+                new VistaAdministradorVentas().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Fondo;
+    private javax.swing.JLabel fondo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
+    private javax.swing.JToggleButton jToggleButton3;
+    private javax.swing.JToggleButton jToggleButton4;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 }
