@@ -32,6 +32,7 @@ public class VistaGerente extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jToolBar1.setBackground(new java.awt.Color(86, 118, 252));
+        jToolBar1.setFloatable(false);
         jToolBar1.setForeground(new java.awt.Color(86, 118, 252));
         jToolBar1.setRollover(true);
 

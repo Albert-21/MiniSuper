@@ -124,20 +124,18 @@ public class VistaInicioSesion extends javax.swing.JFrame {
             try {
                  Usuarios usuarios = daoUsuario.iniciarSesion(usuario);
                 if ("administrador".equals(usuarios.getRol())) {
-                System.out.println("Entrate");
                 VistaGerente vistaGerente = new VistaGerente();
                 vistaGerente.setVisible(true);
                 this.setVisible(false);
             } else {
                 if ("cajero".equals(usuarios.getRol())) {
-                    System.out.println("Entrate");
                     VistaEmpleado vistaEmpleado = new VistaEmpleado();
                     vistaEmpleado.setVisible(true);
                     this.setVisible(false);
                 }
             }
             } catch (NullPointerException e) {
-                System.out.println("error");
+                JOptionPane.showMessageDialog(null,"Usuario o contraseña no validos");
             }
             
 
