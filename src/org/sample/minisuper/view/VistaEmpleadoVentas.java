@@ -180,7 +180,8 @@ public class VistaEmpleadoVentas extends javax.swing.JFrame {
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
         // TODO add your handling code here:
         VistaInicioSesion vista = VistaInicioSesion.getInstance();
-        vista.vistaEmpleado.setVisible(true);
+        vista.setVisible(true);
+        vistaEmpleadoVentas.setVisible(false);
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void btnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProductoActionPerformed

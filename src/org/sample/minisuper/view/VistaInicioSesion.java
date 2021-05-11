@@ -20,8 +20,8 @@ public class VistaInicioSesion extends javax.swing.JFrame {
     private final Usuarios usuario;
     private static VistaInicioSesion vistaInicioSesion = null;
     private final DAOUsuario daoUsuario;
-    protected VistaAdministradorHome vistaGerente;
-    protected VistaEmpleadoHome vistaEmpleado;
+    private final VistaAdministradorHome vistaGerente;
+    private final VistaEmpleadoHome vistaEmpleado;
 
     /**
      * Creates new form InicioSesion
