@@ -23,6 +23,7 @@ public class DAOAlmacen implements DaoGeneral<Productos>{
      private Session session;
 
     public DAOAlmacen() {
+
     }
      
      
@@ -89,7 +90,7 @@ public class DAOAlmacen implements DaoGeneral<Productos>{
         Productos productos = new Productos();
         session = HibernateUtil.getSessionFactory().openSession();
         try {
-            productos = (Productos) session.createQuery("SELECT pojo FROM Productos pojo WHERE codigo_producto = " + pojo.getCodigoProducto()).uniqueResult();
+            productos = (Productos) session.createQuery("SELECT pojo FROM Productos pojo WHERE id_producto = " + pojo.getIdProducto()).uniqueResult();
         } catch (HibernateException ex) {
             Logger.getLogger(DAOAlmacen.class.getName()).log(Level.SEVERE, null, ex);
         } finally {

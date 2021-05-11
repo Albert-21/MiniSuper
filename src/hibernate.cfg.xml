@@ -48,5 +48,6 @@ Contributor(s):
     <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
     <mapping class="org.sample.minisuper.model.Productos"/>
     <mapping class="org.sample.minisuper.model.Usuarios"/>
+    <mapping class="org.sample.minisuper.model.Ventas"/>
   </session-factory>
 </hibernate-configuration>

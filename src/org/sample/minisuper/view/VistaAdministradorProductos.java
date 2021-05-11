@@ -10,11 +10,12 @@ package org.sample.minisuper.view;
  * @author victorm
  */
 public class VistaAdministradorProductos extends javax.swing.JFrame {
+    private static VistaAdministradorProductos vistaAdministradorProductos = null;
 
     /**
      * Creates new form VistaAdministradorProductos
      */
-    public VistaAdministradorProductos() {
+    private VistaAdministradorProductos() {
         initComponents();
     }
 
@@ -149,6 +150,12 @@ public class VistaAdministradorProductos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public static VistaAdministradorProductos getInstance(){
+        if (vistaAdministradorProductos == null) {
+            return vistaAdministradorProductos = new VistaAdministradorProductos();
+        }
+        return vistaAdministradorProductos;
+    }
     /**
      * @param args the command line arguments
      */

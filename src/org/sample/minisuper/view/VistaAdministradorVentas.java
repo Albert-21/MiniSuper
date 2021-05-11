@@ -10,11 +10,13 @@ package org.sample.minisuper.view;
  * @author victorm
  */
 public class VistaAdministradorVentas extends javax.swing.JFrame {
+    
+    private static VistaAdministradorVentas vistaAdministradorVentas = null;
 
     /**
      * Creates new form VistaAdministradorVentas
      */
-    public VistaAdministradorVentas() {
+    private VistaAdministradorVentas() {
         initComponents();
     }
 
@@ -80,16 +82,24 @@ public class VistaAdministradorVentas extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Descripcion", "Fecha", "ID Empleado", "Total"
+                "ID", "Fecha", "ID Empleado", "Total"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 560, 210));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("HIstorial de Ventas");
+        jLabel1.setText("Historial de Ventas");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, -1, -1));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/sample/minisuper/images/4882066.jpg"))); // NOI18N
@@ -101,7 +111,13 @@ public class VistaAdministradorVentas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
+    public static VistaAdministradorVentas getInstance(){
+        if (vistaAdministradorVentas == null) {
+            return vistaAdministradorVentas = new VistaAdministradorVentas();
+        }
+        return vistaAdministradorVentas;
+    }
+     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {

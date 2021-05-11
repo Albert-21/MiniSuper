@@ -7,10 +7,7 @@ package org.sample.minisuper.model;
 
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
 import java.util.Base64;
-import javax.crypto.Cipher;
-import javax.crypto.spec.SecretKeySpec;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

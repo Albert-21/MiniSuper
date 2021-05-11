@@ -101,7 +101,7 @@ public class VistaAdministradorEmpleados extends javax.swing.JFrame {
         jToggleButton6.setFocusable(false);
         jToolBar1.add(jToggleButton6);
 
-        jPanel1.add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 40));
+        jPanel1.add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 40));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -143,7 +143,7 @@ public class VistaAdministradorEmpleados extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 660, 110));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 920, 110));
         jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 150, -1));
         jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 150, -1));
         jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 150, -1));
@@ -151,9 +151,9 @@ public class VistaAdministradorEmpleados extends javax.swing.JFrame {
         jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 150, -1));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/sample/minisuper/images/4882066.jpg"))); // NOI18N
-        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 660, 360));
+        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 790, 360));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 390));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 390));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

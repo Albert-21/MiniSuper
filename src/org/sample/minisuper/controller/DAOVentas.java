@@ -13,7 +13,6 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.sample.minisuper.config.HibernateUtil;
-import org.sample.minisuper.model.Productos;
 import org.sample.minisuper.model.Ventas;
 
 /**
@@ -23,6 +22,11 @@ import org.sample.minisuper.model.Ventas;
 public class DAOVentas implements DaoGeneral<Ventas> {
 
     private Session session;
+
+    public DAOVentas() {
+    }
+    
+    
 
     @Override
     public boolean guardar(Ventas pojo) {
@@ -86,7 +90,7 @@ public class DAOVentas implements DaoGeneral<Ventas> {
         Ventas ventas = new Ventas();
         session = HibernateUtil.getSessionFactory().openSession();
         try {
-            ventas = (Ventas) session.createQuery("SELECT pojo FROM Ventas pojo WHERE id_venta = " + pojo.getId_venta()).uniqueResult();
+            ventas = (Ventas) session.createQuery("SELECT pojo FROM Ventas pojo WHERE id = " + pojo.getId()).uniqueResult();
         } catch (HibernateException ex) {
             Logger.getLogger(DAOAlmacen.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
@@ -100,7 +104,7 @@ public class DAOVentas implements DaoGeneral<Ventas> {
         List<Ventas> List = null;
         session = HibernateUtil.getSessionFactory().openSession();
         try {
-            Query query = session.createQuery("SELECT ventas FROM ventas ventas");
+            Query query = session.createQuery("SELECT ventas FROM Ventas ventas");
             List = query.list();
         } catch (HibernateException ex) {
             Logger.getLogger(DAOUsuario.class.getName()).log(Level.SEVERE, null, ex);

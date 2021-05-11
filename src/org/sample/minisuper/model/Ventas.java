@@ -23,65 +23,70 @@ public class Ventas implements Serializable {
     
     @Id
     @Column
-    private long id_venta;
+    private long id;
     @Column
-    private Time hora;
+    private String fecha;
     @Column
-    private Date fecha;
+    private String hora;
     @Column
-    private long id_usuario;
+    private long id_empleado;
     @Column
-    private long codigo_producto;
+    private long total;
 
     public Ventas() {
     }
 
-    public Ventas(Time hora, Date fecha, long id_usuario, long codigo_producto) {
-        this.hora = hora;
+    public Ventas(String fecha, String hora, long id_empleado, long total) {
         this.fecha = fecha;
-        this.id_usuario = id_usuario;
-        this.codigo_producto = codigo_producto;
-    }
-
-    public long getId_venta() {
-        return id_venta;
-    }
-
-    public void setId_venta(long id_venta) {
-        this.id_venta = id_venta;
-    }
-
-    public Time getHora() {
-        return hora;
-    }
-
-    public void setHora(Time hora) {
         this.hora = hora;
+        this.id_empleado = id_empleado;
+        this.total = total;
     }
 
-    public Date getFecha() {
+    
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
-    public long getId_usuario() {
-        return id_usuario;
+    public String getHora() {
+        return hora;
     }
 
-    public void setId_usuario(long id_usuario) {
-        this.id_usuario = id_usuario;
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+    
+
+    public long getId_empleado() {
+        return id_empleado;
     }
 
-    public long getCodigo_producto() {
-        return codigo_producto;
+    public void setId_empleado(long id_empleado) {
+        this.id_empleado = id_empleado;
     }
 
-    public void setCodigo_producto(long codigo_producto) {
-        this.codigo_producto = codigo_producto;
+    public long getTotal() {
+        return total;
     }
+
+    public void setTotal(long total) {
+        this.total = total;
+    }
+
+   
     
     
     

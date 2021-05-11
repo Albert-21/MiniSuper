@@ -21,8 +21,7 @@ import javax.persistence.Table;
 public class Productos {
     @Id 
     @Column
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long codigoProducto;
+    private long id_producto;
     @Column
     private String nombre_producto;
     @Column
@@ -37,20 +36,20 @@ public class Productos {
     }
     
 
-    public Productos(long codigoProducto, String nombre_producto, String descripcion, long precio, long piezas) {
-        this.codigoProducto = codigoProducto;
+    public Productos(long id_producto, String nombre_producto, String descripcion, long precio, long piezas) {
+        this.id_producto = id_producto;
         this.nombre_producto = nombre_producto;
         this.descripcion = descripcion;
         this.precio = precio;
         this.piezas = piezas;
     }
 
-    public long getCodigoProducto() {
-        return codigoProducto;
+    public long getIdProducto() {
+        return id_producto;
     }
 
-    public void setCodigoProducto(long codigoProducto) {
-        this.codigoProducto = codigoProducto;
+    public void setIdProducto(long id_producto) {
+        this.id_producto = id_producto;
     }
 
     public String getNombre_producto() {

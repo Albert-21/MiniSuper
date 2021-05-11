@@ -5,17 +5,28 @@
  */
 package org.sample.minisuper.view;
 
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import org.sample.minisuper.controller.DAOAlmacen;
+import org.sample.minisuper.model.Productos;
+
 /**
  *
  * @author victorm
  */
 public class VistaEmpleadoAlmacen extends javax.swing.JFrame {
 
+    private static VistaEmpleadoAlmacen vistaEmpleadoAlmacen = null;
+    private DAOAlmacen daoAlmacen;
+    private DefaultTableModel modeloTabla;
+
     /**
      * Creates new form VistaEmpleadoAlmacen
      */
-    public VistaEmpleadoAlmacen() {
+    private VistaEmpleadoAlmacen() {
         initComponents();
+        daoAlmacen = new DAOAlmacen();
+        modeloTabla = (DefaultTableModel) TablaProductos.getModel();
     }
 
     /**
@@ -29,12 +40,12 @@ public class VistaEmpleadoAlmacen extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
+        btnInicio = new javax.swing.JToggleButton();
+        btnConsultarAlmacen = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablaProductos = new javax.swing.JTable();
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -44,21 +55,31 @@ public class VistaEmpleadoAlmacen extends javax.swing.JFrame {
 
         jToolBar1.setRollover(true);
 
-        jToggleButton1.setBackground(new java.awt.Color(153, 153, 153));
-        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/sample/minisuper/images/home_icon-icons.com_73532.png"))); // NOI18N
-        jToggleButton1.setText("Inicio");
-        jToggleButton1.setFocusable(false);
-        jToolBar1.add(jToggleButton1);
+        btnInicio.setBackground(new java.awt.Color(153, 153, 153));
+        btnInicio.setForeground(new java.awt.Color(255, 255, 255));
+        btnInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/sample/minisuper/images/home_icon-icons.com_73532.png"))); // NOI18N
+        btnInicio.setText("Inicio");
+        btnInicio.setFocusable(false);
+        btnInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInicioActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btnInicio);
 
-        jToggleButton2.setBackground(new java.awt.Color(153, 153, 153));
-        jToggleButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/sample/minisuper/images/trolley3_122342.png"))); // NOI18N
-        jToggleButton2.setText("Consultar Almacén ");
-        jToggleButton2.setFocusable(false);
-        jToolBar1.add(jToggleButton2);
+        btnConsultarAlmacen.setBackground(new java.awt.Color(153, 153, 153));
+        btnConsultarAlmacen.setForeground(new java.awt.Color(255, 255, 255));
+        btnConsultarAlmacen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/sample/minisuper/images/trolley3_122342.png"))); // NOI18N
+        btnConsultarAlmacen.setText("Consultar Almacén ");
+        btnConsultarAlmacen.setFocusable(false);
+        btnConsultarAlmacen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarAlmacenActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btnConsultarAlmacen);
 
-        jPanel1.add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 40));
+        jPanel1.add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 40));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -70,8 +91,8 @@ public class VistaEmpleadoAlmacen extends javax.swing.JFrame {
         jLabel2.setText("Tabla Productos");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, -1, -1));
 
-        jTable1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaProductos.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        TablaProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -79,17 +100,48 @@ public class VistaEmpleadoAlmacen extends javax.swing.JFrame {
                 "ID Producto", "Nombre", "Descripción ", "Precio", "Piezas Disponibles"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TablaProductos);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 440, 150));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 550, 150));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/sample/minisuper/images/4882066.jpg"))); // NOI18N
-        jPanel1.add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 440, 290));
+        jPanel1.add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 550, 290));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 320));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public static VistaEmpleadoAlmacen getInstance() {
+        if (vistaEmpleadoAlmacen == null) {
+            return vistaEmpleadoAlmacen = new VistaEmpleadoAlmacen();
+        }
+        return vistaEmpleadoAlmacen;
+    }
+
+    private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
+        // TODO add your handling code here:
+        VistaEmpleadoHome vista = VistaEmpleadoHome.getInstance();
+        vista.setVisible(true);
+        vistaEmpleadoAlmacen.setVisible(false);
+    }//GEN-LAST:event_btnInicioActionPerformed
+
+    private void btnConsultarAlmacenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarAlmacenActionPerformed
+        // TODO add your handling code here:
+        modeloTabla.setRowCount(0);
+        List<Productos> Lista = daoAlmacen.mostrarTodos();
+
+        Lista.forEach((productos) -> {
+            modeloTabla.addRow(new Object[]
+            {
+                productos.getIdProducto(),
+                productos.getNombre_producto(),
+                productos.getDescripcion(),
+                productos.getPrecio(),
+                productos.getPiezas()
+            });
+        });
+    }//GEN-LAST:event_btnConsultarAlmacenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,13 +180,13 @@ public class VistaEmpleadoAlmacen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
+    private javax.swing.JTable TablaProductos;
+    private javax.swing.JToggleButton btnConsultarAlmacen;
+    private javax.swing.JToggleButton btnInicio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 }

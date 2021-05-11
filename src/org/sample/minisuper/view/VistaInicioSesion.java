@@ -7,7 +7,6 @@ package org.sample.minisuper.view;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.sample.minisuper.controller.DAOUsuario;
 import org.sample.minisuper.model.Usuarios;
@@ -19,17 +18,21 @@ import org.sample.minisuper.model.Usuarios;
 public class VistaInicioSesion extends javax.swing.JFrame {
 
     private final Usuarios usuario;
+    private static VistaInicioSesion vistaInicioSesion = null;
     private final DAOUsuario daoUsuario;
+    protected VistaAdministradorHome vistaGerente;
+    protected VistaEmpleadoHome vistaEmpleado;
 
     /**
      * Creates new form InicioSesion
      */
-    public VistaInicioSesion() {
+    private VistaInicioSesion() {
+        initComponents();
         this.usuario = new Usuarios();
         this.daoUsuario = new DAOUsuario();
-        this.setLocationRelativeTo(null);
         this.setResizable(false);
-        initComponents();
+        vistaGerente = VistaAdministradorHome.getInstance();
+        vistaEmpleado =  VistaEmpleadoHome.getInstance();  
     }
 
     /**
@@ -93,6 +96,13 @@ public class VistaInicioSesion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public static VistaInicioSesion getInstance(){
+        if (vistaInicioSesion == null) {
+            return vistaInicioSesion =  new VistaInicioSesion();
+        }
+        return vistaInicioSesion;
+    }
+    
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
         try {
             // TODO add your handling code here:
@@ -102,13 +112,12 @@ public class VistaInicioSesion extends javax.swing.JFrame {
             try {
                  Usuarios usuarios = daoUsuario.iniciarSesion(usuario);
                 if ("administrador".equals(usuarios.getRol())) {
-                VistaAdministradorHome vistaGerente = new VistaAdministradorHome();
                 vistaGerente.setVisible(true);
                 this.setVisible(false);
             } else {
                 if ("cajero".equals(usuarios.getRol())) {
-                    VistaEmpleadoAlmacen vistaEmpleado = new VistaEmpleadoAlmacen();
                     vistaEmpleado.setVisible(true);
+                    vistaEmpleado.UsuarioResgistrado(usuarios);
                     this.setVisible(false);
                 }
             }
@@ -157,10 +166,8 @@ public class VistaInicioSesion extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VistaInicioSesion().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new VistaInicioSesion().setVisible(true);
         });
     }
 

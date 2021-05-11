@@ -10,11 +10,12 @@ package org.sample.minisuper.view;
  * @author alberto
  */
 public class VistaAdministradorHome extends javax.swing.JFrame {
+    private static VistaAdministradorHome vistaAdministradorHome = null;
 
     /**
      * Creates new form VistaGerente
      */
-    public VistaAdministradorHome() {
+    private VistaAdministradorHome() {
         initComponents();
     }
 
@@ -75,11 +76,17 @@ public class VistaAdministradorHome extends javax.swing.JFrame {
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/sample/minisuper/images/cashier_icon-icons.com_53629.png"))); // NOI18N
         jPanel1.add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 260, 240));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 300));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public static VistaAdministradorHome getInstance(){
+        if (vistaAdministradorHome == null) {
+            return vistaAdministradorHome = new VistaAdministradorHome();
+        }
+        return vistaAdministradorHome;
+    }
     /**
      * @param args the command line arguments
      */

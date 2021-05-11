@@ -117,7 +117,7 @@ public class DAOUsuario implements DaoGeneral<Usuarios> {
         List<Usuarios> List = null;
         session = HibernateUtil.getSessionFactory().openSession();
         try {
-            Query query = session.createQuery("SELECT usuario FROM usuarios usuario");
+            Query query = session.createQuery("SELECT usuario FROM Usuarios usuario");
             List = query.list();
         } catch (HibernateException ex) {
             Logger.getLogger(DAOUsuario.class.getName()).log(Level.SEVERE, null, ex);
